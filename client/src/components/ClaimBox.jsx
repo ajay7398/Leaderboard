@@ -37,8 +37,8 @@ const handleClaim = async (userId) => {
                 {activeUser?.name ? (
                     <div className="flex flex-col justify-center gap-2 w-40">
                         <span className="flex justify-between">
-                            <strong>{activeUser.name}</strong>
-                            <h1 className="flex items-center gap-2">
+                            <strong className="text-slate-500">{activeUser.name}</strong>
+                            <h1 className="flex items-center gap-2 text-slate-500">
                                 {activeUser.totalPoints}
                                 <MdStars className='inline text-yellow-400 text-2xl' />
                             </h1>
