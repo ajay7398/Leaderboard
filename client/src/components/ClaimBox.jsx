@@ -46,7 +46,7 @@ const handleClaim = async (userId) => {
                         <button
                             onClick={() => handleClaim(activeUser._id)}
                             disabled={!selectedUser}
-                            className="px-4 py-2 bg-orange-300 text-white font-medium rounded hover:bg-orange-350 disabled:bg-gray-400"
+                            className="px-4 py-2 bg-orange-300 text-white font-medium rounded hover:bg-orange-400 disabled:bg-gray-400"
                         >
                             Claim
                         </button>

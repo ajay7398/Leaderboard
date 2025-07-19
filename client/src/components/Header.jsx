@@ -8,7 +8,7 @@ const Header = () => {
       <h1 className=" font-bold text-slate-600 text-[16px] lg:text-xl">
         🏆 Leaderboard App
       </h1>
-      <button onClick={()=>setShow(!show)} className=" text-[14px] text-white bg-orange-300 hover:bg-blue-700 font-semibold px-2 py-1 lg:px-4 lg:py-2 rounded-md transition">
+      <button onClick={()=>setShow(!show)} className=" text-[14px] text-white bg-orange-300 hover:bg-orange-400 font-semibold px-2 py-1 lg:px-4 lg:py-2 rounded-md transition">
         ➕ 
       </button>
       {

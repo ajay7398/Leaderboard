@@ -11,7 +11,7 @@ const app = express()
 // Middlewares
 app.use(express.json())
 app.use(cors({
-  origin: 'https://ajay-leaderboard.netlify.app'
+  origin: ['https://ajay-leaderboard.netlify.app', 'http://localhost:5173']
 }));
 
 
