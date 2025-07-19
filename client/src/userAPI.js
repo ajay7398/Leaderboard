@@ -10,7 +10,7 @@ export const fetchUsers = async (dispatch,page) => {
     dispatch(setUsers(response.data.allUsers));
     return response.data
   } catch (error) {
-    console.error('Error fetching users:', error);
+    console.error('Error fetching users:', error.message);
   }
 };
 
@@ -19,7 +19,7 @@ export const claimPoints = async (userId) => {
     const response = await axios.post(`${BASE_URL}/claim/${userId}`);
     console.log(response.data)
   } catch (error) {
-    console.error('Error claiming points:', error);
+    console.error('Error claiming points:', error.message);
   }
 };
 
@@ -28,7 +28,7 @@ export const createUser = async (user) => {
   try {
     await axios.post(`${BASE_URL}/users`, { name: user });
   } catch (error) {
-    console.error('Error claiming points:', error);
+    console.error('Error claiming points:', error.message);
   }
 }
 
@@ -37,6 +37,6 @@ try {
     const historyData=await axios.get(`${BASE_URL}/history/${id}`);
 dispatch(addClaimHistory(historyData.data));
   } catch (error) {
-    console.error('Error claiming points:', error);
+    console.error('Error claiming points:', error.message);
   }
 }
