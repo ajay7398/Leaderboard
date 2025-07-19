@@ -6,7 +6,7 @@ const getHistory = async (req, res) => {
         const { id } = req.params;
         const userId = id;
         const history = await ClaimHistory.find({ userId }).populate("userId", "name").sort({ claimedAt: -1 }); // recent first
-        console.log(history)
+    
         res.json(history);
     } catch (err) {
         console.error('Error fetching claim history:', err);

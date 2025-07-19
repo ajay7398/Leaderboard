@@ -1,23 +1,30 @@
 import express from 'express'
-const app=express();
-import dotenv from 'dotenv';
-dotenv.config();
-import connectDB from './config/DB.js';
-import router from './routes/userRoutes.js';
-import historyRouter from './routes/historyRoutes.js'
+import dotenv from 'dotenv'
 import cors from 'cors'
+import connectDB from './config/DB.js'
+import router from './routes/userRoutes.js'
+import historyRouter from './routes/historyRoutes.js'
 
-app.use(express.json());
-app.use(cors());
-//database connection
-connectDB();
+dotenv.config()
+const app = express()
 
-//routes
-app.use('/api',router);
-app.use('/api',historyRouter);
+// Middlewares
+app.use(express.json())
+app.use(cors({
+  origin: ['https://ajay-leaderboard.netlify.app', 'http://localhost:5173']
+}));
 
-const PORT=process.env.PORT;
 
-app.listen(PORT,()=>{
-    console.log("server is running on port",PORT);
+
+// Database
+connectDB()
+
+// Routes
+app.use('/api', router)
+app.use('/api', historyRouter)
+
+// Start server
+const PORT = process.env.PORT || 5000
+app.listen(PORT, () => {
+  console.log('Server is running on port', PORT)
 })

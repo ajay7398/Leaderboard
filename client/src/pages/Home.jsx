@@ -6,7 +6,7 @@ import ClaimHistory from '../components/ClaimHistory'
 
 function Home() {
   return (
-    <div className='lg:w-[80%] w-full mx-auto'>
+    <div className='lg:w-[80%]  w-[96%] mx-auto'>
      <Header/>
      <div className='flex flex-col lg:flex-row lg:items-start gap-10 items-center'>
  <Leaderboard/>

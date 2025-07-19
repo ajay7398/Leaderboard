@@ -20,14 +20,14 @@ const dispatch = useDispatch();
 
 
   return (
-    <div className='absolute right-30 bg-black top-18 p-3 flex gap-3 flex-col'>
-      <div className='flex gap-2 items-center'>
+    <div className='absolute lg:right-30 lg:left-auto  bg-black lg:top-18 lg:p-3 px-8 py-4 top-16 right-0 left-0 gap-3 lg:w-3xs  flex lg:gap-3 flex-col'>
+      <div className='flex gap-2 items-center px-2'>
         <label className="text-white">Name</label>
         <input
           value={value}
           onChange={(e) => setValue(e.target.value)}
           type='text'
-          className='bg-white text-black p-1'
+          className='bg-white text-black p-1 w-full '
         />
       </div>
 
