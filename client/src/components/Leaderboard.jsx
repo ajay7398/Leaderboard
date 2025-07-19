@@ -10,7 +10,7 @@ import { fetchUsers } from '../userAPI';
 const Leaderboard = () => {
     const [page, setPage] = useState(1);
     const [totalPage, setTotalpage] = useState();
-    const [start,setStart]=useState(0);
+    const [start, setStart] = useState(0);
     const users = useSelector((state) => state.user.users);
     const dispatch = useDispatch();
     // Ensure users are sorted by totalPoints descending
@@ -19,12 +19,17 @@ const Leaderboard = () => {
 
     const selectUser = (_id, name, totalPoints) => {
         dispatch(setUser({ _id, name, totalPoints }))
-       
+
     }
 
     useEffect(() => {
         const loadData = async () => {
-            const {pages,start} = await fetchUsers(dispatch, page);
+            const data = await fetchUsers(dispatch, page);
+            if (!data) {
+                console.error("No data returned");
+                return;
+            }
+            const { pages, start } = data;
             setTotalpage(pages)
             setStart(start);
         }
@@ -47,7 +52,7 @@ const Leaderboard = () => {
                         className="flex justify-between items-center bg-gray-50 p-3 rounded-md border hover:bg-gray-100 transition"
                     >
                         <div className="flex items-center gap-3">
-                            <span className="text-lg font-semibold text-blue-600">#{start+index + 1}</span>
+                            <span className="text-lg font-semibold text-blue-600">#{start + index + 1}</span>
                             <span className="text-slate-500 font-medium">{user.name}</span>
                         </div>
                         <span className="text-slate-500 font-semibold">{user.totalPoints} <MdStars className='inline text-yellow-400 text-2xl' /></span>
