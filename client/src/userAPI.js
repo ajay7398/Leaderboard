@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { setUsers, updateUserPoints } from './features/userSlice';
 import { addClaimHistory } from './features/historySlice';
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000/api';
+
 
 export const fetchUsers = async (dispatch,page) => {
   try {
